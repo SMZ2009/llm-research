@@ -1,0 +1,27 @@
+{
+  "seed": 42,
+  "source_sha256": "2df9083338b4abd6bceb5635764dab5d833b393b55759dffb0959b6fcbf794ec",
+  "ifeval_sha256": "67ffeee0fcb87c317c5b08a2de85557b4a7e96ada6178aa645b4954fe4b53d49",
+  "raw_rows": 15011,
+  "deduplication": "first row per whitespace-normalized, casefolded instruction plus context",
+  "ifeval_leakage_check": "exact casefolded instruction or full prompt match",
+  "dropped": {
+    "empty": 0,
+    "duplicate_prompt": 203,
+    "ifeval_exact_prompt": 0
+  },
+  "splits": {
+    "test": {
+      "rows": 740,
+      "sha256": "f37c280bdcc2ef12e1ad54e9b91ab32b50faee160ac46fbe6e2b3ca74341a729"
+    },
+    "validation": {
+      "rows": 740,
+      "sha256": "4b4a19d0c9b3ea51b5b14fa3d2a93ccde2c73715843f73766bc556b24fdec551"
+    },
+    "train": {
+      "rows": 13328,
+      "sha256": "897578cd6c2d7fa48761ec3d39d85d76be4c93988a70beb9dbf4aa7c739a44fb"
+    }
+  }
+}
