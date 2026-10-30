@@ -68,9 +68,13 @@ def main() -> None:
     valid = [json.loads(line) for line in args.output.open(encoding="utf-8")]
     total_tokens = sum(r["tokens"] for r in valid)
     nll = sum(r["nll_sum"] for r in valid if r["nll_sum"] is not None) / total_tokens
-    print(json.dumps({"samples": len(valid), "tokens": total_tokens,
-                      "excluded": sum(r["excluded"] is not None for r in valid),
-                      "response_token_nll": nll, "perplexity": math.exp(nll)}))
+    summary = {"samples": len(valid), "tokens": total_tokens,
+               "excluded": sum(r["excluded"] is not None for r in valid),
+               "response_token_nll": nll, "perplexity": math.exp(nll)}
+    args.output.with_suffix(".summary.json").write_text(
+        json.dumps(summary, indent=2) + "\n", encoding="utf-8"
+    )
+    print(json.dumps(summary))
 
 
 if __name__ == "__main__":

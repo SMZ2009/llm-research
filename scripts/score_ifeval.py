@@ -19,7 +19,9 @@ def main() -> None:
     args = parser.parse_args()
     sys.path.insert(0, str(args.official_root.parent))
     from instruction_following_eval import evaluation_lib
+    from langdetect import DetectorFactory
 
+    DetectorFactory.seed = 0
     inputs = evaluation_lib.read_prompt_list(str(args.input))
     responses = {}
     for name, path in (("base", args.base), ("adapter", args.adapter)):
@@ -30,7 +32,7 @@ def main() -> None:
         by_key = {r["key"]: r for r in rows}
         if any(by_key[r.key]["prompt"] != r.prompt for r in inputs):
             raise ValueError(f"{name}: prompt mismatch")
-        responses[name] = {r["prompt"]: by_key[r.key]["response"] for r in inputs}
+        responses[name] = {r.prompt: by_key[r.key]["response"] for r in inputs}
     per_sample = []
     for item in inputs:
         record = {"key": item.key, "prompt": item.prompt}

@@ -1,0 +1,12 @@
+{
+  "train_runtime": 2459.5758,
+  "train_samples_per_second": 5.419,
+  "train_steps_per_second": 0.339,
+  "total_flos": 6454613740879872.0,
+  "train_loss": 2.0938137170074937,
+  "eval_loss": null,
+  "eval_loss_status": "invalid: 9 validation prompts occupied all 1024 tokens; see length_audit.json",
+  "eval_runtime": 30.99,
+  "eval_samples_per_second": 23.879,
+  "eval_steps_per_second": 23.879
+}

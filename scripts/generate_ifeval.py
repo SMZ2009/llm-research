@@ -35,9 +35,13 @@ def main() -> None:
     if args.output.exists():
         for line in args.output.open(encoding="utf-8"):
             row = json.loads(line)
+            if row["key"] in completed:
+                raise RuntimeError(f"Duplicate response key {row['key']}")
             completed[row["key"]] = row
-    if len(completed) != len({x["key"] for x in completed.values()}):
-        raise RuntimeError("Duplicate response keys")
+    expected = {row["key"]: row["prompt"] for row in rows}
+    if any(key not in expected or row["prompt"] != expected[key]
+           for key, row in completed.items()):
+        raise RuntimeError("Existing responses do not match the fixed IFEval inputs")
     with args.output.open("a", encoding="utf-8", newline="\n") as stream:
         for index, row in enumerate(rows, 1):
             if row["key"] in completed:

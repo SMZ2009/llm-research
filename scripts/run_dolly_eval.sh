@@ -41,3 +41,9 @@ PY="${RUNTIME_ROOT}/.venv/bin/python"
 "${PY}" scripts/evaluate_dolly.py --input data/splits/dolly15k_s42/test.jsonl \
   --output "${OUT}/dolly_adapter.jsonl" --model-path "${MODEL_PATH}" \
   --adapter "${ADAPTER}" --max-length 1024 >> "${OUT}/eval.log" 2>&1
+"${PY}" scripts/evaluate_dolly.py --input data/splits/dolly15k_s42/validation.jsonl \
+  --output "${OUT}/validation_base.jsonl" --model-path "${MODEL_PATH}" \
+  --max-length 1024 >> "${OUT}/eval.log" 2>&1
+"${PY}" scripts/evaluate_dolly.py --input data/splits/dolly15k_s42/validation.jsonl \
+  --output "${OUT}/validation_adapter.jsonl" --model-path "${MODEL_PATH}" \
+  --adapter "${ADAPTER}" --max-length 1024 >> "${OUT}/eval.log" 2>&1

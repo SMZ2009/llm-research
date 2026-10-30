@@ -1,6 +1,6 @@
 # Qwen3-0.6B LoRA Research
 
-可复现的单卡 LoRA 微调项目，目标环境为 Windows 11、Ubuntu 22.04 WSL2 和 RTX 5060 Laptop 8 GB。训练模式固定为 **non-thinking SFT**。目前仅完成环境与模型验证；**尚未导入数据集，也未进行训练**。
+可复现的单卡 LoRA 微调项目，目标环境为 Windows 11、Ubuntu 22.04 WSL2 和 RTX 5060 Laptop 8 GB。训练模式固定为 **non-thinking SFT**。Dolly 15k 与 IFEval 已导入；Qwen3-0.6B × Dolly 15k 实验的冻结配置、预算、划分清单与协议见 [`experiments/qwen3_0p6b_sft_dolly15k_s42_20261030/`](experiments/qwen3_0p6b_sft_dolly15k_s42_20261030/)。
 
 ## 当前验证结果
 
@@ -25,7 +25,7 @@ bash scripts/verify_wsl.sh
 
 脚本会在 WSL 的 Linux 文件系统中创建隔离环境、缓存模型；验证结果写入被 Git 忽略的 `reports/local/`。`uv.lock` 锁定依赖版本和包哈希。运行脚本**不会生成完整环境归档**。
 
-数据任务确定后，在 `configs/sft_lora_non_thinking.yaml` 填写任务、来源、许可和固定的 train/validation/test 路径。训练入口会拒绝空数据配置、思考内容、重复记录及跨划分重叠。基础模型和测试集均不参与参数更新。
+训练入口要求在专属配置文件中填写任务、来源、许可和固定的 train/validation/test 路径。入口会拒绝空数据配置、思考内容、重复记录及跨划分重叠。基础模型和测试集均不参与参数更新。本次实验使用 `configs/qwen3_0p6b_sft_dolly15k_s42_20261030.yaml`；运行和评测脚本在 `scripts/`。
 
 ## 项目结构
 
@@ -41,6 +41,6 @@ reports/              公开报告与本地验证结果
 docs/                 可复现性与存储策略
 ```
 
-运行 ID：`qwen3_0p6b_sft_lora_<dataset>_s<seed>_<yyyymmdd_hhmmss>`。模型权重遵循上游 [Qwen3-0.6B 模型仓库](https://huggingface.co/Qwen/Qwen3-0.6B)的 Apache-2.0 许可；本仓库不包含模型权重或数据集。
+实验 ID：`qwen3_0p6b_sft_dolly15k_s42_20261030`。模型权重遵循上游 [Qwen3-0.6B 模型仓库](https://huggingface.co/Qwen/Qwen3-0.6B)的 Apache-2.0 许可；本仓库不包含模型权重或数据集。
 
 更多细节见 [复现说明](docs/reproducibility.md)与[存储策略](docs/storage_policy.md)。

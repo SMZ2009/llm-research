@@ -1,0 +1,23 @@
+{
+  "train": {
+    "rows": 13328,
+    "full_sequence_over_limit": 187,
+    "prompt_fills_limit": 107,
+    "response_tokens": 1078900,
+    "retained_response_tokens": 1036687
+  },
+  "validation": {
+    "rows": 740,
+    "full_sequence_over_limit": 12,
+    "prompt_fills_limit": 9,
+    "response_tokens": 60074,
+    "retained_response_tokens": 58651
+  },
+  "test": {
+    "rows": 740,
+    "full_sequence_over_limit": 9,
+    "prompt_fills_limit": 7,
+    "response_tokens": 55359,
+    "retained_response_tokens": 54688
+  }
+}

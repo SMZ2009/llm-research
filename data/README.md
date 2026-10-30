@@ -1,6 +1,6 @@
 # Dataset contract
 
-No dataset is included yet. A future task and source must be identified with its URI, license, and checksum before import.
+Raw datasets and fixed splits are kept locally and ignored by Git. Imported source revisions, licenses, and checksums are recorded in `data/imports/`; experiment-specific split hashes are recorded under `experiments/`.
 
 Use UTF-8 JSONL with one record per conversation:
 

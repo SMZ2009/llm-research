@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import shutil
@@ -201,11 +202,15 @@ def main() -> None:
     )
     metrics = dict(result.metrics)
     metrics.update(trainer.evaluate())
+    metrics = {
+        key: (None if isinstance(value, float) and not math.isfinite(value) else value)
+        for key, value in metrics.items()
+    }
     adapter_dir = run_dir / "adapter"
     trainer.save_model(str(adapter_dir))
     tokenizer.save_pretrained(str(adapter_dir))
     (run_dir / "metrics.json").write_text(
-        json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(metrics, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8"
     )
 
     export_dir = PROJECT_ROOT / "models" / "adapters" / run_id
@@ -220,8 +225,8 @@ def main() -> None:
     for name in ("config.yaml", "metrics.json"):
         shutil.copy2(run_dir / name, public_run_dir / name)
     public_manifest = json.loads((run_dir / "manifest.json").read_text(encoding="utf-8"))
-    for split in public_manifest["dataset"].values():
-        split["path"] = f"data/splits/dolly15k_s42/{Path(split['path']).name.split('_')[0]}.jsonl"
+    for split_name, split in public_manifest["dataset"].items():
+        split["path"] = f"data/splits/dolly15k_s42/{split_name}.jsonl"
     (public_run_dir / "manifest.json").write_text(
         json.dumps(public_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
