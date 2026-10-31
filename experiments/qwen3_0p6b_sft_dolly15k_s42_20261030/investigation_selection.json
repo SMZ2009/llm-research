@@ -1,0 +1,45 @@
+{
+  "selection": "post hoc: base passes, adapter fails; 15 capped and 15 uncapped selected uniformly without replacement within each stratum",
+  "seed": 20261031,
+  "per_stratum": 15,
+  "eligible": {
+    "capped": 76,
+    "uncapped": 66
+  },
+  "selected": {
+    "capped_base_only": [
+      321,
+      340,
+      1307,
+      1601,
+      1646,
+      1705,
+      1759,
+      2142,
+      2304,
+      2372,
+      2396,
+      2589,
+      2765,
+      3057,
+      3223
+    ],
+    "uncapped_base_only": [
+      143,
+      1021,
+      1236,
+      1287,
+      1537,
+      1802,
+      1843,
+      2034,
+      2071,
+      2362,
+      2497,
+      2918,
+      2997,
+      3150,
+      3407
+    ]
+  }
+}

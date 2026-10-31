@@ -19,6 +19,8 @@ def main() -> None:
     parser.add_argument("--model-path", type=Path, required=True)
     parser.add_argument("--adapter", type=Path)
     parser.add_argument("--max-new-tokens", type=int, default=512)
+    parser.add_argument("--sampling", action="store_true")
+    parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA GPU is required")
@@ -53,11 +55,17 @@ def main() -> None:
                 enable_thinking=False,
             )
             inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+            decoding = (
+                {"do_sample": True, "temperature": 0.7, "top_p": 0.8, "top_k": 20}
+                if args.sampling else {"do_sample": False}
+            )
+            if args.sampling:
+                torch.manual_seed(args.seed + int(row["key"]))
             started = time.monotonic()
             with torch.inference_mode():
                 tokens = model.generate(
                     **inputs,
-                    do_sample=False,
+                    **decoding,
                     max_new_tokens=args.max_new_tokens,
                     pad_token_id=tokenizer.eos_token_id,
                 )
@@ -69,6 +77,8 @@ def main() -> None:
                 "response": response,
                 "new_tokens": int(response_tokens.numel()),
                 "seconds": round(time.monotonic() - started, 3),
+                "decoding": "qwen_non_thinking_sampling" if args.sampling else "greedy",
+                "max_new_tokens": args.max_new_tokens,
             }
             stream.write(json.dumps(record, ensure_ascii=False) + "\n")
             stream.flush()

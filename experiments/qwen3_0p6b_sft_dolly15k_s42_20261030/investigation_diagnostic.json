@@ -1,0 +1,126 @@
+{
+  "post_hoc_selection": {
+    "selection": "post hoc: base passes, adapter fails; 15 capped and 15 uncapped selected uniformly without replacement within each stratum",
+    "seed": 20261031,
+    "per_stratum": 15,
+    "eligible": {
+      "capped": 76,
+      "uncapped": 66
+    },
+    "selected": {
+      "capped_base_only": [
+        321,
+        340,
+        1307,
+        1601,
+        1646,
+        1705,
+        1759,
+        2142,
+        2304,
+        2372,
+        2396,
+        2589,
+        2765,
+        3057,
+        3223
+      ],
+      "uncapped_base_only": [
+        143,
+        1021,
+        1236,
+        1287,
+        1537,
+        1802,
+        1843,
+        2034,
+        2071,
+        2362,
+        2497,
+        2918,
+        2997,
+        3150,
+        3407
+      ]
+    }
+  },
+  "conditions": {
+    "adapter_512": {
+      "capped_base_only": {
+        "n": 15,
+        "strict_pass": 0,
+        "loose_pass": 0,
+        "capped": 15,
+        "mean_new_tokens": 512,
+        "mean_repetition_fraction": 0.8849608961581784,
+        "sum_generation_seconds": 235.923,
+        "passed_keys": []
+      },
+      "uncapped_base_only": {
+        "n": 15,
+        "strict_pass": 0,
+        "loose_pass": 0,
+        "capped": 0,
+        "mean_new_tokens": 67.13333333333334,
+        "mean_repetition_fraction": 0.21980300867503919,
+        "sum_generation_seconds": 31.443999999999996,
+        "passed_keys": []
+      }
+    },
+    "greedy_1024": {
+      "capped_base_only": {
+        "n": 15,
+        "strict_pass": 0,
+        "loose_pass": 0,
+        "capped": 15,
+        "mean_new_tokens": 1024,
+        "mean_repetition_fraction": 0.9209299492859012,
+        "sum_generation_seconds": 419.54599999999994,
+        "passed_keys": []
+      },
+      "uncapped_base_only": {
+        "n": 15,
+        "strict_pass": 0,
+        "loose_pass": 0,
+        "capped": 0,
+        "mean_new_tokens": 67.13333333333334,
+        "mean_repetition_fraction": 0.21980300867503919,
+        "sum_generation_seconds": 29.581999999999997,
+        "passed_keys": []
+      }
+    },
+    "sampling_512": {
+      "capped_base_only": {
+        "n": 15,
+        "strict_pass": 3,
+        "loose_pass": 3,
+        "capped": 10,
+        "mean_new_tokens": 388.2,
+        "mean_repetition_fraction": 0.6726863799627799,
+        "sum_generation_seconds": 148.57199999999997,
+        "passed_keys": [
+          340,
+          1705,
+          3057
+        ]
+      },
+      "uncapped_base_only": {
+        "n": 15,
+        "strict_pass": 4,
+        "loose_pass": 4,
+        "capped": 3,
+        "mean_new_tokens": 148.6,
+        "mean_repetition_fraction": 0.2590244140706781,
+        "sum_generation_seconds": 58.79900000000001,
+        "passed_keys": [
+          1802,
+          1843,
+          2362,
+          3150
+        ]
+      }
+    }
+  },
+  "greedy_1024_text_prefix_match": 30,
+  "greedy_1024_text_prefix_total": 30
+}

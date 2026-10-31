@@ -1,0 +1,24 @@
+{
+  "eos_token": "<|im_end|>",
+  "eos_token_id": 151645,
+  "max_length": 1024,
+  "counts": {
+    "rows": 13328,
+    "prompt_prefix_mismatch": 0,
+    "zero_completion_tokens": 107,
+    "truncated_before_eos": 187,
+    "eos_retained": 13141,
+    "empty_think_preamble": 13328,
+    "duplicate_eos_in_source": 0
+  },
+  "examples": {
+    "prefix_mismatch": [],
+    "zero_completion_tokens": [
+      "dolly_11833",
+      "dolly_02571",
+      "dolly_08083",
+      "dolly_13180",
+      "dolly_12559"
+    ]
+  }
+}
