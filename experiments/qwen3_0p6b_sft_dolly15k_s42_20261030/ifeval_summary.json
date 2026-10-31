@@ -1,0 +1,15 @@
+{
+  "n": 541,
+  "primary_metric": "IFEval strict prompt accuracy",
+  "base": 0.5785582255083179,
+  "adapter": 0.38817005545286504,
+  "difference": -0.1903881700554529,
+  "paired_bootstrap_95pct_ci": [
+    -0.2365988909426987,
+    -0.14602587800369685
+  ],
+  "base_only_pass": 142,
+  "adapter_only_pass": 39,
+  "both_pass": 171,
+  "neither_pass": 189
+}

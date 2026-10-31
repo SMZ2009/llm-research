@@ -1,0 +1,7 @@
+{
+  "samples": 740,
+  "tokens": 58651,
+  "excluded": 9,
+  "response_token_nll": 2.641143751468901,
+  "perplexity": 14.029240399247657
+}

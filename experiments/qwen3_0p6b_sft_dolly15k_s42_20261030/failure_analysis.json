@@ -1,0 +1,125 @@
+{
+  "groups": {
+    "neither_pass": {
+      "n": 189,
+      "base_mean_new_tokens": 197.37566137566137,
+      "adapter_mean_new_tokens": 280.5820105820106,
+      "base_capped": 32,
+      "adapter_capped": 91,
+      "sample_keys": [
+        1000,
+        1012,
+        1040,
+        1069,
+        1098
+      ]
+    },
+    "adapter_only": {
+      "n": 39,
+      "base_mean_new_tokens": 137.84615384615384,
+      "adapter_mean_new_tokens": 243.46153846153845,
+      "base_capped": 2,
+      "adapter_capped": 16,
+      "sample_keys": [
+        1001,
+        1075,
+        1162,
+        1305,
+        1332
+      ]
+    },
+    "both_pass": {
+      "n": 171,
+      "base_mean_new_tokens": 122.046783625731,
+      "adapter_mean_new_tokens": 182.5906432748538,
+      "base_capped": 11,
+      "adapter_capped": 45,
+      "sample_keys": [
+        1005,
+        1019,
+        102,
+        1051,
+        1072
+      ]
+    },
+    "base_only": {
+      "n": 142,
+      "base_mean_new_tokens": 155.68309859154928,
+      "adapter_mean_new_tokens": 308.27464788732397,
+      "base_capped": 11,
+      "adapter_capped": 76,
+      "sample_keys": [
+        1021,
+        1082,
+        1092,
+        1108,
+        1128
+      ]
+    }
+  },
+  "categories": {
+    "punctuation": {
+      "n": 66,
+      "base_pass": 23,
+      "adapter_pass": 27,
+      "base_accuracy": 0.3484848484848485,
+      "adapter_accuracy": 0.4090909090909091
+    },
+    "detectable_format": {
+      "n": 155,
+      "base_pass": 99,
+      "adapter_pass": 63,
+      "base_accuracy": 0.6387096774193548,
+      "adapter_accuracy": 0.4064516129032258
+    },
+    "length_constraints": {
+      "n": 133,
+      "base_pass": 57,
+      "adapter_pass": 40,
+      "base_accuracy": 0.42857142857142855,
+      "adapter_accuracy": 0.3007518796992481
+    },
+    "detectable_content": {
+      "n": 52,
+      "base_pass": 33,
+      "adapter_pass": 15,
+      "base_accuracy": 0.6346153846153846,
+      "adapter_accuracy": 0.28846153846153844
+    },
+    "combination": {
+      "n": 65,
+      "base_pass": 25,
+      "adapter_pass": 16,
+      "base_accuracy": 0.38461538461538464,
+      "adapter_accuracy": 0.24615384615384617
+    },
+    "change_case": {
+      "n": 84,
+      "base_pass": 43,
+      "adapter_pass": 25,
+      "base_accuracy": 0.5119047619047619,
+      "adapter_accuracy": 0.2976190476190476
+    },
+    "startend": {
+      "n": 66,
+      "base_pass": 49,
+      "adapter_pass": 18,
+      "base_accuracy": 0.7424242424242424,
+      "adapter_accuracy": 0.2727272727272727
+    },
+    "keywords": {
+      "n": 148,
+      "base_pass": 54,
+      "adapter_pass": 51,
+      "base_accuracy": 0.36486486486486486,
+      "adapter_accuracy": 0.34459459459459457
+    },
+    "language": {
+      "n": 31,
+      "base_pass": 16,
+      "adapter_pass": 8,
+      "base_accuracy": 0.5161290322580645,
+      "adapter_accuracy": 0.25806451612903225
+    }
+  }
+}
